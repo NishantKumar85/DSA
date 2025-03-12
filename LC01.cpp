@@ -72,11 +72,16 @@ vector<int> solve3(vector<int> &nums,int target)
 // 0(1)
 vector<int> solve4(vector<int>&nums,int target)
 {
-    int i = nums.size();
+    int n = nums.size();
     unordered_map<int,int> mp;
+
     for(int i = 0;i < n;i++){
-        
+        int diff = target - nums[i];
+        if(mp.find(diff) != mp.end())
+            return {mp[i],i};
+        mp[i] = i;
     }
+    return {};
 }
 
 
